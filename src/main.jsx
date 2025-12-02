@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './index.css'
 import App from './App.jsx'
+import NotFound from './components/NotFound.jsx'
 
 const ProductList = lazy(() => import("./components/ProductList.jsx"));
 const ProductDetail = lazy(() => import("./components/ProductDetail.jsx"));
@@ -29,6 +30,7 @@ const appRouter = createBrowserRouter([
         )
       }
     ],
+    errorElement : <NotFound />
   }
 ])
 
