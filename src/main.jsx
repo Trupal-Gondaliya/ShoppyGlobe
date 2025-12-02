@@ -4,9 +4,12 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './index.css'
 import App from './App.jsx'
 import NotFound from './components/NotFound.jsx'
+import { Provider } from 'react-redux'
+import store from './redux/store.js'
 
 const ProductList = lazy(() => import("./components/ProductList.jsx"));
 const ProductDetail = lazy(() => import("./components/ProductDetail.jsx"));
+const Cart = lazy(() => import("./components/Cart.jsx"));
 
 const appRouter = createBrowserRouter([
   {
@@ -28,6 +31,14 @@ const appRouter = createBrowserRouter([
             <ProductDetail />
           </Suspense>
         )
+      },
+      {
+        path : "/cart",
+        element : (
+          <Suspense fallback={<div>Loading....</div>}>
+            <Cart />
+          </Suspense>
+        )
       }
     ],
     errorElement : <NotFound />
@@ -36,6 +47,8 @@ const appRouter = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={appRouter} />
+    <Provider store={store}>
+      <RouterProvider router={appRouter} />
+    </Provider>
   </StrictMode>,
 )
