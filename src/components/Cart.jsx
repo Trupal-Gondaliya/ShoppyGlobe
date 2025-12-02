@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import CartItem from "./CartItem";
+import { Link } from "react-router-dom";
 
 function Cart() {
   const cartItems = useSelector((state) => state.cart.items);
@@ -15,6 +16,9 @@ function Cart() {
           {cartItems.map((item) => <CartItem key={item.id} item={item} />)}
           <div className="mt-6 text-right">
             <h3 className="text-xl font-bold">Total: ${total.toFixed(2)}</h3>
+            <Link to="/checkout" className="bg-green-600 text-white px-6 py-2 rounded mt-4 inline-block hover:bg-green-700">
+              Proceed to Checkout
+            </Link>
           </div>
         </div>
       )}
