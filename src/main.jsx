@@ -10,6 +10,7 @@ import store from './redux/store.js'
 const ProductList = lazy(() => import("./components/ProductList.jsx"));
 const ProductDetail = lazy(() => import("./components/ProductDetail.jsx"));
 const Cart = lazy(() => import("./components/Cart.jsx"));
+const Checkout = lazy(() => import("./components/Checkout.jsx"));
 
 const appRouter = createBrowserRouter([
   {
@@ -39,7 +40,15 @@ const appRouter = createBrowserRouter([
             <Cart />
           </Suspense>
         )
-      }
+      },
+      {
+        path : "/checkout",
+        element : (
+          <Suspense fallback={<div>Loading....</div>}>
+            <Checkout />
+          </Suspense>
+        )
+      },
     ],
     errorElement : <NotFound />
   }
