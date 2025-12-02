@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../redux/cartSlice";
 
 function ProductDetail() {
     const { id } = useParams(); // Get the ID from the URL
@@ -32,6 +34,13 @@ function ProductDetail() {
     if (loading) return <div className="text-center mt-10 text-xl">Loading details...</div>;
     if (error) return <div className="text-center mt-10 text-red-500">Error: {error}</div>;
     if (!product) return <div className="text-center mt-10">Product not found</div>;
+
+    const dispatch = useDispatch();
+
+    // arrow function to add item into cart
+    const handleAddToCart = () => {
+        dispatch(addToCart(product));
+    };
 
     return (
         <div className="container mx-auto p-6 max-w-4xl">
@@ -78,7 +87,7 @@ function ProductDetail() {
                     
                     <button
                         className="bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition font-semibold mt-auto"
-                        onClick={() => console.log("Add to Cart via Redux:", product)}>
+                        onClick={handleAddToCart}>
                         Add to Cart
                     </button>
                 </div>
