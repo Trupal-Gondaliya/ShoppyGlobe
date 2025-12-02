@@ -31,8 +31,11 @@ const cartSlice = createSlice({
         setSearchTerm: (state, action) => {
             state.searchItem = action.payload;
         },
+        clearCart: (state) => {
+            state.items = []; // Resets the items array to empty after checkout
+        },
     },
 });
 
-export const { addToCart, removeFromCart, incrementQuantity, decrementQuantity, setSearchTerm} = cartSlice.actions;
+export const { addToCart, removeFromCart, incrementQuantity, decrementQuantity, setSearchTerm, clearCart } = cartSlice.actions;
 export default cartSlice.reducer;
