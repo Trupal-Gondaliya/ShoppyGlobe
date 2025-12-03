@@ -1,13 +1,25 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux";
 import { setSearchTerm } from "../redux/cartSlice";
 
 function Header() {
 
+    const navigate = useNavigate(); // Hook for navigation
     const dispatch = useDispatch();
     const cartItems = useSelector((state) => state.cart.items);
     const cartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
+    // This function runs when Button is clicked 
+    const handleSearchAction = () => {
+        // Redirect to Home page where the ProductList is displayed
+        navigate("/");
+    };
+    // This function runs when Enter is pressed
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            handleSearchAction();
+        }
+    }
     return (
         <>
             <header className="bg-[#19223d] shadow-md">
@@ -19,13 +31,22 @@ function Header() {
                         </Link>
                     </div>
 
-                    {/* Search Bar  */}
-                    <input
-                        type="text"
-                        placeholder="Search products..."
-                        className="px-4 py-2 rounded text-black w-full md:w-80 focus:outline-none focus:ring-2 focus:ring-white bg-gray-200"
-                        onChange={(e) => dispatch(setSearchTerm(e.target.value))}
-                    />
+                    {/* Search Bar Container */}
+                    <div className="flex items-center w-full md:w-80 bg-gray-200 rounded">
+                        <input
+                            type="text"
+                            placeholder="Search products..."
+                            className="px-4 py-2 rounded text-black w-full md:w-80 focus:outline-none  bg-gray-200"
+                            onChange={(e) => dispatch(setSearchTerm(e.target.value))}
+                            onKeyDown={handleKeyDown}
+                        />
+                        {/* Search Button */}
+                        <button
+                            onClick={handleSearchAction}
+                            className="pr-3 pl-2 text-gray-600 hover:text-blue-500">
+                            🔍
+                        </button>
+                    </div>
 
                     {/* Navigation Menu */}
                     <nav className="flex items-center space-x-8 md:space-x-16 font-semibold">
