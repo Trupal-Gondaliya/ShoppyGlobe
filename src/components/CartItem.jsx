@@ -14,7 +14,8 @@ function CartItem({ item }) {
         </div>
       </div>
       <div className="flex items-center space-x-2">
-        <button onClick={() => dispatch(decrementQuantity(item.id))} className="px-3 py-1 bg-gray-200 hover:bg-gray-500 rounded font-bold transition-colors">-</button>
+        <button disabled={item.quantity <= 1} onClick={() => dispatch(decrementQuantity(item.id))} 
+          className={`${item.quantity <= 1 ? 'px-3 py-1 bg-gray-200 opacity-50 cursor-not-allowed' : 'px-3 py-1 bg-gray-200 hover:bg-gray-500 rounded font-bold transition-colors'}`}>-</button>
         <span>{item.quantity}</span>
         <button onClick={() => dispatch(incrementQuantity(item.id))} className="px-3 py-1 bg-gray-200 hover:bg-gray-500 rounded font-bold transition-colors">+</button>
         <button onClick={() => dispatch(removeFromCart(item.id))} className="text-red-500 hover:text-red-700 font-medium text-sm transition-colors sm:ml-4">Remove</button>

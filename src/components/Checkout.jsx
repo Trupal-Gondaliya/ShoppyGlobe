@@ -85,7 +85,7 @@ function Checkout() {
                         <div>
                             <label className="block text-sm font-medium text-gray-700">City</label>
                             <input
-                                type="city"
+                                type="text"
                                 id="city"
                                 name="city"
                                 value={formDetails.city}
@@ -98,7 +98,7 @@ function Checkout() {
                             <div className="w-1/2">
                                 <label className="block text-sm font-medium text-gray-700">State</label>
                                 <input
-                                    type="state"
+                                    type="text"
                                     id="state"
                                     name="state"
                                     value={formDetails.state}
@@ -110,7 +110,7 @@ function Checkout() {
                             <div className="w-1/2">
                                 <label className="block text-sm font-medium text-gray-700">Zip Code</label>
                                 <input
-                                    type="zipcode"
+                                    type="number"
                                     id="zipcode"
                                     name="zipcode"
                                     value={formDetails.zipcode}
