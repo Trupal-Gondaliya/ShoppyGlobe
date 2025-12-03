@@ -1,16 +1,65 @@
-# React + Vite
+# 🛒 ShoppyGlobe - E-commerce Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ShoppyGlobe is a fully functional, responsive e-commerce application built with React and Vite. It features a modern UI, robust state management using Redux Toolkit, and seamless client-side routing.
 
-Currently, two official plugins are available:
+This project was developed to demonstrate proficiency in advanced React concepts including Hooks, Redux, Performance Optimization (Lazy Loading), and API integration.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## React Compiler
+- roduct Browsing: Fetches product data dynamically from the DummyJSON API(https://dummyjson.com/).
+- Search Functionality: Real-time product filtering by title and tags using Redux state.
+- Shopping Cart:
+    - Add items to cart.
+    - Adjust quantities (increment/decrement).
+    - Remove items.
+    - Automatic total price calculation.
+- Product Details: Dynamic routing to view detailed information for individual products.
+- Checkout Flow: A functional checkout form with validation that clears the cart upon order placement.
+- Performance Optimization: 
+    - Lazy Loading:Route-based code splitting using `React.lazy` and `Suspense`.
+    - Image Optimization: Lazy loading for product images to improve initial load time.
+- Error Handling: Custom 404 "Not Found" page and graceful API error handling.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+- Frontend Library: React
+- State Management: Redux Toolkit & React-Redux
+- Routing:React Router DOM
+- Styling:Tailwind CSS
+- API: DummyJSON(https://dummyjson.com/)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Project Structure
+
+src/ 
+|- components/
+│   |- Cart.jsx           # Cart view and total calculation
+│   |- CartItem.jsx       # Individual cart item controls
+│   |- Checkout.jsx       # Order form and summary
+│   |- Header.jsx         # Navigation and Search bar
+│   |- NotFound.jsx       # 404 Error page
+│   |- ProductDetail.jsx  # Single product view
+│   |- ProductItem.jsx    # Product card component
+│   |- ProductList.jsx    # Main grid display with search logic
+|- redux/
+│   |- cartSlice.js       # Redux logic (Actions & Reducers)
+│   |- store.js           # Redux Store configuration
+|- utils/
+│   |- useFetchProducts.js # Custom Hook for API fetching
+|- App.jsx                # Layout wrapper
+|- main.jsx               # Entry point with Router configuration
+
+# INSTALLATION & SETUP
+
+1. Clone the repository:
+    - git clone https://github.com/your-username/your-repo-name.git
+    - cd your-repo-name
+
+2. Install  All Dependencies:
+    - npm install
+    (This will automatically install All These Dependencies which required to this app.)
+
+3. Setup Tailwind CSS
+    npm install tailwindcss @tailwindcss/vite
+
+4. Run the project:
+    npm run dev
