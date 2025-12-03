@@ -15,7 +15,7 @@ function Cart() {
         <div>
           {cartItems.map((item) => <CartItem key={item.id} item={item} />)}
           <div className="mt-6 text-right">
-            <h3 className="text-xl font-bold">Total: ${total.toFixed(2)}</h3>
+            <h3 className="text-xl font-bold"><span className="text-green-600">Total:</span> ${total.toFixed(2)}</h3>
             <Link to="/checkout" className="bg-green-600 text-white px-6 py-2 rounded mt-4 inline-block hover:bg-green-700">
               Proceed to Checkout
             </Link>

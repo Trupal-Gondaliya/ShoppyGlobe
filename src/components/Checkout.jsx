@@ -41,7 +41,7 @@ function Checkout() {
         <div className="container mx-auto p-6 max-w-6xl">
             <h2 className="text-3xl font-bold mb-6 text-center">Checkout</h2>
 
-            <div className="flex flex-col lg:flex-row gap-8">
+            <div className="flex flex-col md:flex-row gap-8">
                 {/* Checkout Form */}
                 <div className="lg:w-2/3 bg-white p-6 rounded-lg shadow-lg border border-gray-200">
                     <h3 className="text-2xl font-semibold mb-4 border-b pb-2">Shipping Details</h3>
@@ -136,8 +136,8 @@ function Checkout() {
 
                     {/* Item List */}
                     {cartItems.map(item => (
-                        <div className="flex justify-between">
-                            <div key={item.id} className="flex text-sm py-1">
+                        <div key={item.id} className="flex justify-between">
+                            <div className="flex text-sm py-1">
                                 <span><img src={item.thumbnail} alt={item.title}
                                     className="w-10 h-10 object-cover rounded mr-2 bg-amber-100"
                                     loading="lazy" /></span>
@@ -150,7 +150,7 @@ function Checkout() {
 
                     ))}
 
-                    <div className="border-t mt-4 pt-4 flex justify-between text-xl font-bold">
+                    <div className="border-t border-black mt-4 pt-4 flex justify-between text-xl text-blue-800 font-bold">
                         <span>Total:</span>
                         <span>${total.toFixed(2)}</span>
                     </div>
