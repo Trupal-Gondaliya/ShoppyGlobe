@@ -9,6 +9,9 @@ function ProductDetail() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
+    // FIX: Move useDispatch to the top level, before any returns
+    const dispatch = useDispatch();
+
     useEffect(() => {
         const fetchProductDetail = async () => {
             try {
@@ -34,8 +37,6 @@ function ProductDetail() {
     if (loading) return <div className="text-center mt-10 text-xl">Loading details...</div>;
     if (error) return <div className="text-center mt-10 text-red-500">Error: {error}</div>;
     if (!product) return <div className="text-center mt-10">Product not found</div>;
-
-    const dispatch = useDispatch();
 
     // arrow function to add item into cart
     const handleAddToCart = () => {
