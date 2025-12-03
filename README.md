@@ -62,4 +62,7 @@ src/
     npm install tailwindcss @tailwindcss/vite
 
 4. Run the project:
-    npm run dev
+    npm run dev\
+
+# Git Repo Link
+https://github.com/Trupal-Gondaliya/ShoppyGlobe
